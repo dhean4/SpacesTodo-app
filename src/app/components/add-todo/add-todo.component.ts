@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule,Location } from '@angular/common';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Task } from '../../models/todo';
 import { TodoService } from '../../service/todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -64,6 +64,9 @@ ngOnInit(): void {
         console.log('task updated!');
         
     }
+    if (this.taskForm.invalid) {
+      return;
+    }
     this.router.navigate(['/todos'])
 }
 
@@ -81,13 +84,16 @@ updateTask(task: Task) {
   });
 }
 
+
+
+
 getTask(): void {
         this.taskService.getTask(this.id)
           .subscribe(task => this.task = task);
   }
 
   get title() {
-    return this.taskForm.get('tittle')!;
+    return this.taskForm.get('title')!;
   }
 
 }
