@@ -1,9 +1,9 @@
 <header class="bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex justify-between h-20 py-3 px-2 w-full">
     <div class="flex">
-      <a routerLink="" class="cursor-pointer navbar-brand">
+      <a routerLink="/" class="cursor-pointer navbar-brand">
         <img [src]="'../assets/image/logo.jpeg'" class="h-12 rounded-lg mx-4" alt="space todo.app">
       </a>
     </div>
   
-    <button type="button"  (click)="navigateToAddTodo()" routerLink="/add-task" class="btn bg-indigo-600 px-4 py-2 rounded-full flex items-center"><i class="fa-solid fa-plus-circle text-2xl"></i> <small class="text-white px-2 hidden sm:block">New Task</small></button>
+    <button type="button"  (click)="navigateToAddTodo()" routerLink="/add-task" class="btn bg-indigo-600 px-4 py-1 rounded-full flex items-center"><i class="fa-solid fa-plus-circle text-2xl"></i> <small class="text-white px-2 hidden sm:block">New Task</small></button>
 </header>

@@ -1,5 +1,5 @@
 
-  <section class="px-2 py-8 bg-white md:px-0 flex  flex-col justify-center items-center">
+  <section class="px-2 py-4 bg-white md:px-0 flex  flex-col justify-center items-center">
     <app-header class="w-full container"></app-header>
     <div class="container  py-16 items-center max-w-12xl px-8 mx-auto xl:px-5">
         <div class="md:flex">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="px-4 py-3">
                     <fieldset id="completion" class="row-span-4">
-                        <label for="completion" class="py-5 text-sm text-gray-600 font-light">Completion</label>
+                        <label for="completion" class="py-5 text-sm text-gray-300 font-light">Completion</label>
                         <div class="py-3 flex items-center">
                             <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="all" name="filter"
                                 (change)="handleChange($event)" [checked]="filter == 'all'">
@@ -33,7 +33,7 @@
                     </fieldset>
         
                     <fieldset id="priority" class="row-span-4">
-                        <label for="priority" class="py-5 text-sm text-gray-600 font-light">Priority</label>
+                        <label for="priority" class="py-5 text-sm text-gray-300 font-light">Priority</label>
                         <div class="py-3 flex items-center">
                             <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="low" name="priority"
                                 (click)="handlePriority($event)">

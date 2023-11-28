@@ -16,7 +16,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
 })
 export class AddTodoComponent {
   taskForm:any = new FormGroup({
-    title: new FormControl('', Validators.required),
+    title: new FormControl('',[Validators.required, Validators.minLength(1)]),
     description: new FormControl(''),
     priority: new FormControl(''),
     deadline:new FormControl('')
@@ -84,6 +84,10 @@ updateTask(task: Task) {
 getTask(): void {
         this.taskService.getTask(this.id)
           .subscribe(task => this.task = task);
-      }
+  }
+
+  get title() {
+    return this.taskForm.get('tittle')!;
+  }
 
 }

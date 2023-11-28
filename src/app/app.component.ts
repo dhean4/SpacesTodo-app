@@ -11,5 +11,5 @@ import { HomeComponent } from './components/home/home.component';
     imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, HomeComponent]
 })
 export class AppComponent {
-  title = 'Spacetodo-app';
+  title = 'TodoSpace';
 }

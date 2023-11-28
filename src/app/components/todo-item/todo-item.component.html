@@ -1,15 +1,15 @@
-<div class="flex flex-col items-center">
-    <button routerLink="/homepage"
+<app-header></app-header>
+<div class="flex flex-col items-center bg-indigo-500 h-full w-full">
+    <button routerLink="/home"
         class=" text-white text-lg px-2 py-1 text-center border-none m-3  hover:transform hover:scale-105 transition-all self-start"><i
             class="fa-solid fa-arrow-left"></i>
     </button>
 
     <div
-        class="flex flex-col justify-center items-start py-12 px-6 mx-4 m-6 bg-white rounded shadow-md drop-shadow-md max-w-lg">
+        class="flex flex-col justify-center items-ceneter py-12 px-6 mx-4 m-6 bg-white rounded shadow-md drop-shadow-md max-w-lg">
         <div class="flex gap-10 items-start mb-4">
             <div class="flex flex-col">
                 <h3 class="text-2xl">{{task.title}}</h3>
-                <!-- <p>{{task.createdAt | date}}</p> -->
                 <p class="text-xs text-gray-500">created: <span class="text-gray-700 text-sm">Jan 2, 2022</span></p>
             </div>
             <button type="button" routerLink="/edit-todo/{{task.taskId}}"><i class="fa-solid fa-edit"></i></button>

@@ -4,13 +4,14 @@ import { TodoService } from '../../service/todo.service';
 import { ActivatedRoute, Router, RouterModule} from '@angular/router';
 import { take } from 'rxjs';
 import { Task } from '../../models/todo';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-todo-item',
-  standalone: true,
-  imports: [CommonModule,RouterModule],
-  templateUrl: './todo-item.component.html',
-  styleUrl: './todo-item.component.scss'
+    selector: 'app-todo-item',
+    standalone: true,
+    templateUrl: './todo-item.component.html',
+    styleUrl: './todo-item.component.scss',
+    imports: [CommonModule, RouterModule, HeaderComponent]
 })
 export class TodoItemComponent {
 
