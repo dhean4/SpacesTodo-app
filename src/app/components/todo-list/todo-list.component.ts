@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { TodoService } from '../../service/todo.service';
 import { Task } from '../../models/todo';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-todo-list',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
+    selector: 'app-todo-list',
+    standalone: true,
+    templateUrl: './todo-list.component.html',
+    styleUrl: './todo-list.component.scss',
+    imports: [CommonModule, HeaderComponent, RouterModule]
 })
 export class TodoListComponent {
   tasks: Task[] = [];

@@ -5,6 +5,6 @@ export interface Task {
     deadline: string | any,
     title: string | null;
     priority: string | null | undefined;
-    description: string | null | undefined;
+    description: any | null | undefined;
 
 }

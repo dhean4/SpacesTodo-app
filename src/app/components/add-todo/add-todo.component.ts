@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,Location } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Task } from '../../models/todo';
 import { TodoService } from '../../service/todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-todo',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-todo.component.html',
-  styleUrl: './add-todo.component.scss'
+    selector: 'app-add-todo',
+    standalone: true,
+    templateUrl: './add-todo.component.html',
+    styleUrl: './add-todo.component.scss',
+    imports: [CommonModule, ReactiveFormsModule, HeaderComponent]
 })
 export class AddTodoComponent {
   taskForm:any = new FormGroup({
@@ -27,7 +28,7 @@ task?:Task ;
 id:number = Number(this.route.snapshot.params['id']);
 isAddMode: boolean=false;
 
-constructor(private taskService: TodoService, private router: Router, private route: ActivatedRoute) { }
+constructor(private taskService: TodoService, private router: Router, private route: ActivatedRoute, private location:Location) { }
 
 ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -39,6 +40,11 @@ ngOnInit(): void {
             .subscribe(data => this.taskForm.patchValue(data));
     }
  }
+
+ back() {
+  return this.location.back();
+}
+
 
  onSubmit() {
     let task: Task = {
@@ -58,7 +64,7 @@ ngOnInit(): void {
         console.log('task updated!');
         
     }
-    this.router.navigate(['/todo'])
+    this.router.navigate(['/todos'])
 }
 
 createTask(task: Task) {

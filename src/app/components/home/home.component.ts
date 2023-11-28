@@ -13,6 +13,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   navigateToNewComponent() {
-    this.router.navigate(['/todo']);
+    this.router.navigate(['/todos']);
   }
 }

@@ -1,15 +1,6 @@
 
   <section class="px-2 py-8 bg-white md:px-0 flex  flex-col justify-center items-center">
-    <header class="bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex justify-between h-20 py-3 px-2 w-full container">
-        <div class="flex">
-          <a routerLink="/homepage" class="navbar-brand">
-            <img src="../assets/images/todo.png" class="h-12 rounded-lg mx-4" alt="space todo.app">
-          </a>
-        </div>
-      
-        <button type="button"routerLink="/new-task" class="btn bg-indigo-600 px-4 py-2 rounded-full flex items-center"><i class="fa-solid fa-plus-circle text-2xl"></i> <small class="text-white px-2 hidden sm:block">New Task</small></button>
-    </header>
-
+    <app-header class="w-full container"></app-header>
     <div class="container  py-16 items-center max-w-12xl px-8 mx-auto xl:px-5">
         <div class="md:flex">
             <!-- sidebar -->
@@ -88,10 +79,10 @@
                         <div class="px-6 py-3 text-gray-900 whitespace-nowrap hidden md:block col-span-2">
                             {{task.deadline|date}}
                         </div>
-                        <!-- <div class="px-6 py-3">
-                            <a routerLink="/task/{{task.taskId}}" class="font-medium text-blue-400"><i
+                        <div class="px-6 py-3">
+                            <a routerLink="/todo/{{task.taskId}}" class="font-medium text-blue-400"><i
                                     class="fa-solid fa-external-link"></i></a>
-                        </div> -->
+                        </div>
                         <div class="px-6 py-3">
                             <button class="font-medium text-base text-red-400 " (click)="deleteTask(task)"><i
                                     class="fa-solid fa-trash"></i></button>
