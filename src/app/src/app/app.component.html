@@ -1,0 +1,12 @@
+<header class="bg-white bg-opacity-10 backdrop-blur-lg rounded drop-shadow-lg flex justify-between h-20 py-3 px-4">
+  <div class="flex">
+    <a routerLink="/homepage" class="navbar-brand">
+      <img src="../assets/images/todo.png" class="h-12 rounded-lg mx-4" alt="ToDo.app">
+    </a>
+  </div>
+
+  <button type="button"routerLink="/new-task" class="btn px-4 py-2 rounded-full flex items-center"><i class="fa-solid fa-plus-circle text-2xl"></i> <small class="text-white px-2 hidden sm:block">New Task</small></button>
+</header>
+
+<!-- The routed views render in the <router-outlet>-->
+  <router-outlet></router-outlet>

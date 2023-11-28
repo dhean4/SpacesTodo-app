@@ -1,0 +1,95 @@
+<div class="md:flex">
+    <!-- sidebar -->
+    <aside class="bg-transparent fixed h-[100%] z-30 flex flex-row-reverse md:-left-0 md:relative md:bg-purple-300 md:w-max md:px-8 md:py-6 md:my-5 md:mx-8 rounded-md"
+        [ngClass]="{'bg-purple-300 -left-0 shadow-md':showSideBar == true, '-left-40':showSideBar == false}">
+        <div class="">
+            <button
+                class="md:hidden text-white text-lg px-2 py-1 rounded-md text-center border-none m-3 hover:drop-shadow-md hover:transform hover:scale-105 transition-all"
+                (click)="displaySideBar()"><i class="fa-solid fa-bars " [ngClass]="{'hidden':showSideBar == true}"></i>
+                <i class="fa-solid fa-chevron-left" [ngClass]="{'hidden':showSideBar == false}"></i></button>
+        </div>
+        <div class="px-4 py-3">
+            <fieldset id="completion" class="row-span-4">
+                <label for="completion" class="py-5 text-sm text-gray-600 font-light">Completion</label>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="all" name="filter"
+                        (change)="handleChange($event)" [checked]="filter == 'all'">
+                    <label for="" class="text-lg">All</label>
+                </div>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="done" name="filter"
+                        (change)="handleChange($event)" [checked]="filter == 'done'">
+                    <label for="" class="text-lg">Done</label>
+                </div>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="to do" name="filter"
+                        (change)="handleChange($event)" [checked]="filter == 'to do'"> <label for=""
+                        class="text-lg">Undone</label>
+                </div>
+            </fieldset>
+
+            <fieldset id="priority" class="row-span-4">
+                <label for="priority" class="py-5 text-sm text-gray-600 font-light">Priority</label>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="low" name="priority"
+                        (click)="handlePriority($event)">
+                    <label for="" class="text-lg">Low</label>
+                </div>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="medium"
+                        name="priority" (click)="handlePriority($event)">
+                    <label for="" class="text-lg">Medium</label>
+                </div>
+                <div class="py-3 flex items-center">
+                    <input type="radio" class="mx-3 text-purple-500 focus:ring-purple-500" value="high" name="priority"
+                        (click)="handlePriority($event)">
+                    <label for="" class="text-lg">High</label>
+                </div>
+            </fieldset>
+        </div>
+    </aside>
+
+    <main class="p-3 flex flex-col items-center justify-end h-[100%] w-[100%]">
+
+        <!-- <div class="flex items-center justify-center gap-1 py-3 sm:py-4 w-[70%]">
+            <button class="btn px-3 py-2 rounded-md"><i class="fa-solid fa-search"></i></button>
+            <input type="search" name="search" id="search" placeholder="search to-do:title"
+                class="px-3 py-2 rounded-md outline-none sm:w-2/3 md:w-2/4">
+        </div> -->
+        <h1 class="text-6xl text-center py-6">To-Dos</h1>
+        <div>
+            <div class="bg-white border-b mb-4 grid grid-cols-5 sm:grid-cols-7 md:grid-cols-9 rounded-3xl px-2 drop-shadow-lg shadow-lg scale-90 task"
+                *ngFor="let task of tasks">
+                <div class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-1" type="checkbox"
+                            class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 " (change)="changeStatus(task)" [checked]="task.done == true">
+                        <label for="checkbox-table-1" class="sr-only">checkbox</label>
+                    </div>
+                </div>
+                <div scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap col-span-2 capitalize" [ngClass]="{'line-through':task.done == true}">
+                    {{task.title}}
+                </div>
+                <div class="px-6 py-3 text-gray-900 whitespace-nowrap hidden sm:block col-span-2">
+                    <p class="text-xs py-2 px-4 rounded-full text-center text-gray-500">Priority: <span
+                            [ngClass]="{'text-blue-600':task.priority === 'low', 'text-green-600':task.priority === 'medium', 'text-red-600':task.priority === 'high'}">{{task.priority}}</span>
+                    </p>
+                </div>
+                <div class="px-6 py-3 text-gray-900 whitespace-nowrap hidden md:block col-span-2">
+                    {{task.deadline|date}}
+                </div>
+                <div class="px-6 py-3">
+                    <a routerLink="/task/{{task.taskId}}" class="font-medium text-blue-400"><i
+                            class="fa-solid fa-external-link"></i></a>
+                </div>
+                <div class="px-6 py-3">
+                    <button class="font-medium text-red-400 " (click)="deleteTask(task)"><i
+                            class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>

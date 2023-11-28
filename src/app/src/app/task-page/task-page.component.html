@@ -1,0 +1,62 @@
+<main class="flex flex-col justify-center items-center px-4">
+    <button routerLink="/homepage"
+        class=" text-white text-lg px-2 py-1 text-center border-none m-3  hover:transform hover:scale-105 transition-all self-start"><i
+            class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onClickSave()"
+        class=" mb-10 flex flex-col px-4 pt-3 pb-4 bg-white bg-opacity-10 backdrop:blur-lg rounded drop-shadow-lg mx-4 w-full sm:w-10/12 md:w-2/3">
+        <h2 class="text-center mb-3 text-3xl">Create To-do</h2>
+        <div
+            class="border border-transparent bg-purple-400 bg-opacity-10 backdrop-blur-lg focus:border-purple-500 rounded-3xl shadow-sm flex mb-4 items-center">
+            <label for="title" class="pr-6 pl-4 py-2 text-sm text-center w-24">Title</label>
+            <input class="border border-white focus:border-purple-500 rounded-3xl shadow-sm my-0 flex-1" type="text"
+                name="title" id="title" formControlName="title" required />
+        </div>
+        <div
+            class="border border-transparent bg-purple-400 bg-opacity-10 backdrop-blur-lg focus:border-purple-500 rounded-3xl shadow-sm flex flex-col mb-4 justify-center">
+            <label for="description" class="pr-6 pl-4 py-2 text-sm text-center w-24">Description</label>
+            <textarea name="description" id="description" cols="20" rows="3"
+                class="border border-white focus:border-purple-500 rounded-xl shadow-sm my-0 flex-1"
+                formControlName="description"></textarea>
+        </div>
+        <div class="lg:flex">
+            <div
+                class="border border-transparent bg-purple-400 bg-opacity-10 backdrop-blur-lg focus:border-purple-500 rounded-3xl shadow-sm flex mb-4 items-center lg:flex-1">
+                <label for="description" class="pr-6 pl-4 py-2 text-sm text-center w-24">Priority</label>
+                <select name="priority" id="priority" formControlName="priority"
+                    class="border border-white focus:border-purple-500 rounded-3xl shadow-sm my-0 flex-1">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div
+                class="border border-transparent bg-purple-400 bg-opacity-10 backdrop-blur-lg focus:border-purple-500 rounded-3xl shadow-sm flex mb-4 items-center lg:flex-1">
+                <label for="deadline" class="pr-6 pl-4 py-2 text-sm text-center w-24">Deadline</label>
+                <input type="date" name="deadline" id="deadline" formControlName="deadline"
+                    class="border border-white focus:border-purple-500 rounded-3xl shadow-sm my-0 flex-1">
+            </div>
+        </div>
+        <div class="mb-4">
+            <input type="file" name="image" id="image" accept="image/*" (change)="onChange($event)"
+                formControlName="image">
+            <img [src]="imageUrl" height="200">
+        </div>
+        <div
+            class="border border-transparent bg-purple-400 bg-opacity-10 backdrop-blur-lg focus:border-purple-500 rounded-3xl shadow-sm flex flex-col mb-4 lg:flex-row lg:items-center">
+            <div class="flex mb-4 justify-center lg:items-center lg:mb-0 lg:flex-1">
+                <label for="link" class="pr-6 pl-4 py-2 text-sm text-center w-32">Attach link</label>
+                <input type="url" name="link" id="link" formControlName="link"
+                    class="border border-white focus:border-purple-500 rounded-3xl shadow-sm my-0 flex-1">
+            </div>
+            <div class="flex justify-center lg:items-center lg:flex-1">
+                <label for="shortLink" class="pr-6 pl-4 py-2 text-sm text-center w-32">as</label>
+                <input type="text" id="shortLink" formControlName="shortLink"
+                    class="border border-white focus:border-purple-500 rounded-3xl shadow-sm my-0 flex-1">
+            </div>
+        </div>
+        <button type="submit" [disabled]="taskForm.invalid"
+            class="btn px-10 py-3 rounded-full flex items-center text-white text-center self-end scale-80 hover:transform hover:scale-105 mb-4">Save</button>
+    </form>
+</main>
