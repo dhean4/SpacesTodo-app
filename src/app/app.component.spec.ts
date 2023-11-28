@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Spacetodo-app' title`, () => {
+  it(`should have the 'TodoSpace' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Spacetodo-app');
+    expect(app.title).toEqual('TodoSpace');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Spacetodo-app');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, TodoSpace');
   });
 });
