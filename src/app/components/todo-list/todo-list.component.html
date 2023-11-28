@@ -77,11 +77,11 @@
                                 <label for="checkbox-table-1" class="sr-only">checkbox</label>
                             </div>
                         </div>
-                        <div scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap col-span-2 capitalize" [ngClass]="{'line-through':task.isCompleted == true}">
+                        <div scope="row" class="px-6 py-3 font-medium text-base text-gray-900 whitespace-nowrap col-span-2 capitalize" [ngClass]="{'line-through':task.isCompleted == true}">
                             {{task.title}}
                         </div>
                         <div class="px-6 py-3 text-gray-900 whitespace-nowrap hidden sm:block col-span-2">
-                            <p class="text-xs py-2 px-4 rounded-full text-center text-gray-500">Priority: <span
+                            <p class="text-sm py-2 px-4 rounded-full text-center text-gray-500">Priority: <span
                                     [ngClass]="{'text-blue-600':task.priority === 'low', 'text-green-600':task.priority === 'medium', 'text-red-600':task.priority === 'high'}">{{task.priority}}</span>
                             </p>
                         </div>
@@ -93,7 +93,7 @@
                                     class="fa-solid fa-external-link"></i></a>
                         </div> -->
                         <div class="px-6 py-3">
-                            <button class="font-medium text-red-400 " (click)="deleteTask(task)"><i
+                            <button class="font-medium text-base text-red-400 " (click)="deleteTask(task)"><i
                                     class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
